@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapid Wash | Pressure Washing in Smith County, TN</title>
+<meta name="description" content="Rapid Wash provides professional pressure washing, soft washing, and exterior cleaning across Smith County, Tennessee and surrounding areas. Free instant quotes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo.png">
+<style>
+  :root{
+    --ink:#101720;
+    --ink-2:#1a2430;
+    --ink-3:#232f3d;
+    --paper:#f7f4ee;
+    --paper-2:#efeae0;
+    --concrete:#d8d0bf;
+    --concrete-line:#c7bea9;
+    --spray:#1f6fb2;
+    --spray-deep:#144c80;
+    --spray-bright:#5cc2f0;
+    --grime:#6b6248;
+    --ink-text:#141b22;
+    --white:#ffffff;
+    --shadow: 0 20px 45px -20px rgba(10,16,22,0.45);
+    --radius:14px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink-text);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;margin:0;padding:0;}
+  h1,h2,h3,h4{margin:0;font-family:'Archivo Black',sans-serif;font-weight:400;letter-spacing:-0.01em;color:var(--ink);}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 28px;border-radius:999px;font-weight:700;font-size:15px;
+    cursor:pointer;border:2px solid transparent;transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--spray);color:#fff;box-shadow:0 14px 30px -10px rgba(31,111,178,0.65);}
+  .btn-primary:hover{background:var(--spray-deep);box-shadow:0 18px 34px -10px rgba(20,76,128,0.7);transform:translateY(-2px);}
+  .btn-ghost{background:transparent;border-color:rgba(255,255,255,0.55);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px);}
+  .btn-dark{background:var(--ink);color:#fff;}
+  .btn-dark:hover{background:#000;transform:translateY(-2px);}
+  .btn-block{width:100%;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.16em;
+    font-size:12.5px;font-weight:600;color:var(--spray-deep);display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--spray);display:inline-block;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:18px 0;transition:background .3s ease, padding .3s ease, box-shadow .3s ease;
+  }
+  header.solid{background:rgba(16,23,32,0.92);backdrop-filter:blur(10px);padding:12px 0;box-shadow:0 10px 30px -18px rgba(0,0,0,0.6);}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Archivo Black',sans-serif;color:#fff;font-size:19px;letter-spacing:-0.02em;}
+  .logo svg{flex-shrink:0;}
+  .logo span{color:var(--spray-bright);}
+  .logo-badge{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:#fff;border-radius:10px;padding:5px 10px;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,0.35);
+  }
+  .logo-badge img{height:34px;width:auto;display:block;}
+  .foot-logo .logo-badge{padding:10px 16px;border-radius:14px;margin-bottom:16px;}
+  .foot-logo .logo-badge img{height:64px;}
+  .nav-links{display:flex;align-items:center;gap:34px;}
+  .nav-links a{color:rgba(255,255,255,0.82);font-weight:600;font-size:14.5px;transition:color .2s;}
+  .nav-links a:hover{color:#fff;}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-phone{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:14.5px;}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-btn span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;background:linear-gradient(180deg,var(--ink) 0%, var(--ink-2) 100%);
+    padding:150px 0 90px;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(560px 420px at 88% 8%, rgba(92,194,240,0.16), transparent 70%),
+      radial-gradient(700px 500px at 10% 100%, rgba(31,111,178,0.18), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center;position:relative;z-index:2;}
+  .hero h1{color:#fff;font-size:clamp(34px,4.4vw,54px);line-height:1.06;margin:18px 0 22px;}
+  .hero h1 em{font-style:normal;color:var(--spray-bright);}
+  .hero p.lead{color:rgba(255,255,255,0.78);font-size:18px;max-width:490px;margin-bottom:34px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .hero-stats{display:flex;gap:36px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.14);padding-top:26px;}
+  .hero-stats .stat b{display:block;color:#fff;font-family:'Archivo Black',sans-serif;font-size:26px;}
+  .hero-stats .stat span{color:rgba(255,255,255,0.6);font-size:12.5px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;}
+
+  /* before/after slider */
+  .ba-wrap{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.1);aspect-ratio:4/3;}
+  .ba-slider{position:relative;width:100%;height:100%;overflow:hidden;user-select:none;touch-action:pan-y;}
+  .ba-slider img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+  .ba-slider .ba-before{z-index:1;}
+  .ba-slider .ba-after{z-index:2;clip-path:inset(0 50% 0 0);}
+  .ba-handle{
+    position:absolute;top:0;bottom:0;left:50%;width:0;z-index:5;cursor:ew-resize;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ba-handle::before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:3px;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,0.18);}
+  .ba-grip{
+    position:relative;width:46px;height:46px;border-radius:50%;background:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.35);
+    color:var(--spray-deep);
+  }
+  .ba-tag{position:absolute;top:16px;z-index:6;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
+    letter-spacing:.1em;padding:6px 12px;border-radius:999px;color:#fff;text-transform:uppercase;}
+  .ba-tag.before{left:16px;background:rgba(107,98,72,0.85);}
+  .ba-tag.after{right:16px;background:rgba(31,111,178,0.9);}
+  .ba-caption{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+  .ba-caption p{margin:0;color:var(--ink);font-size:14px;font-weight:600;}
+  .ba-caption span{color:#6a7280;font-size:13px;}
+  .ba-hint{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,0.55);font-size:12px;font-family:'IBM Plex Mono',monospace;margin-top:12px;justify-content:center;}
+
+  /* ---------- SECTION generic ---------- */
+  section{position:relative;}
+  .sec-pad{padding:100px 0;}
+  .sec-head{max-width:640px;margin-bottom:56px;}
+  .sec-head h2{font-size:clamp(28px,3.4vw,40px);margin:16px 0 14px;line-height:1.12;}
+  .sec-head p{color:#57616c;font-size:16.5px;}
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- QUOTE FORM ---------- */
+  .quote-band{
+    background:var(--ink);position:relative;padding:90px 0;overflow:hidden;
+  }
+  .quote-band::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 90% 0%, rgba(92,194,240,0.14), transparent 70%);}
+  .quote-inner{position:relative;z-index:2;display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:start;}
+  .quote-left .eyebrow{color:var(--spray-bright);}
+  .quote-left .eyebrow::before{background:var(--spray-bright);}
+  .quote-left h2{color:#fff;font-size:clamp(28px,3.2vw,38px);margin:16px 0 18px;}
+  .quote-left p{color:rgba(255,255,255,0.72);font-size:16px;margin-bottom:26px;max-width:420px;}
+  .quote-left ul{display:flex;flex-direction:column;gap:14px;}
+  .quote-left li{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.85);font-size:14.5px;font-weight:600;}
+  .quote-left li svg{flex-shrink:0;color:var(--spray-bright);}
+
+  .quote-card{background:var(--paper);border-radius:22px;padding:38px;box-shadow:var(--shadow);}
+  .quote-card h3{font-size:14px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--spray-deep);margin-bottom:22px;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-grid .full{grid-column:1/-1;}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:#3d4652;margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;}
+  .field input, .field select, .field textarea{
+    width:100%;padding:13px 14px;border-radius:10px;border:1.5px solid var(--concrete-line);
+    background:#fff;font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink-text);transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none;border-color:var(--spray);box-shadow:0 0 0 4px rgba(31,111,178,0.14);
+  }
+  .field textarea{resize:vertical;min-height:88px;}
+  .services-check{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px;}
+  .chk{display:flex;align-items:center;gap:9px;padding:10px 12px;border:1.5px solid var(--concrete-line);border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;transition:border-color .2s, background .2s;}
+  .chk:has(input:checked){border-color:var(--spray);background:rgba(31,111,178,0.06);}
+  .chk input{accent-color:var(--spray);width:16px;height:16px;}
+  .quote-card .btn{margin-top:22px;}
+  .form-note{margin-top:14px;font-size:12.5px;color:#7a8390;text-align:center;}
+  .form-success{display:none;margin-top:18px;padding:14px 16px;border-radius:10px;background:rgba(31,111,178,0.09);color:var(--spray-deep);font-size:13.5px;font-weight:600;}
+  .form-success.show{display:block;}
+
+  /* ---------- WHY CHOOSE ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .why-card{
+    background:#fff;border:1px solid var(--concrete-line);border-radius:18px;padding:34px 28px;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);box-shadow:0 24px 44px -22px rgba(20,30,40,0.25);border-color:transparent;}
+  .why-icon{width:52px;height:52px;border-radius:14px;background:var(--spray);display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:20px;}
+  .why-card h3{font-size:19px;margin-bottom:10px;}
+  .why-card p{color:#5b6470;font-size:14.5px;margin:0;}
+
+  /* ---------- SERVICES ---------- */
+  .services-sec{background:var(--paper-2);}
+  .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .service-card{
+    background:#fff;border-radius:16px;padding:26px 22px;border:1px solid var(--concrete-line);
+    transition:transform .22s ease, box-shadow .22s ease;
+  }
+  .service-card:hover{transform:translateY(-5px);box-shadow:0 20px 36px -20px rgba(20,30,40,0.3);}
+  .service-icon{width:44px;height:44px;border-radius:12px;background:rgba(31,111,178,0.1);color:var(--spray-deep);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .service-card h4{font-size:16px;margin-bottom:8px;}
+  .service-card p{font-size:13.5px;color:#5b6470;margin:0;}
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio-sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:34px;margin-bottom:52px;}
+  .ba-wrap.small{aspect-ratio:4/3;}
+
+  .gallery-grid{
+    columns:4;column-gap:16px;
+  }
+  .gallery-grid figure{margin:0 0 16px;break-inside:avoid;position:relative;border-radius:14px;overflow:hidden;}
+  .gallery-grid img{width:100%;display:block;transition:transform .5s ease;}
+  .gallery-grid figure:hover img{transform:scale(1.06);}
+  .gallery-grid figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:14px 14px 12px;
+    background:linear-gradient(0deg, rgba(10,15,20,0.82), transparent);
+    color:#fff;font-size:12.5px;font-weight:700;opacity:0;transition:opacity .3s;
+  }
+  .gallery-grid figure:hover figcaption{opacity:1;}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-sec{background:var(--ink);}
+  .reviews-sec .sec-head h2{color:#fff;}
+  .reviews-sec .sec-head p{color:rgba(255,255,255,0.65);}
+  .reviews-sec .eyebrow{color:var(--spray-bright);}
+  .reviews-sec .eyebrow::before{background:var(--spray-bright);}
+  .review-summary{display:flex;align-items:center;gap:18px;margin-bottom:40px;flex-wrap:wrap;}
+  .g-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);padding:12px 18px;border-radius:14px;}
+  .g-badge b{font-size:22px;color:#fff;font-family:'Archivo Black',sans-serif;}
+  .g-stars{color:#f5b400;display:flex;gap:2px;}
+  .g-label{font-size:12.5px;color:rgba(255,255,255,0.55);font-family:'IBM Plex Mono',monospace;}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .review-card{background:rgba(255,255,255,0.045);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:26px;}
+  .review-card .g-stars{margin-bottom:14px;}
+  .review-card p.txt{color:rgba(255,255,255,0.82);font-size:14.5px;margin:0 0 20px;}
+  .reviewer{display:flex;align-items:center;gap:12px;}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--spray);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;font-family:'Archivo Black',sans-serif;}
+  .reviewer div span{display:block;}
+  .reviewer .name{color:#fff;font-weight:700;font-size:13.5px;}
+  .reviewer .loc{color:rgba(255,255,255,0.5);font-size:12px;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    background:linear-gradient(120deg,var(--spray-deep),var(--spray) 60%, #2b8fd6);
+    padding:76px 0;text-align:center;
+  }
+  .final-cta h2{color:#fff;font-size:clamp(26px,3.4vw,38px);margin-bottom:14px;}
+  .final-cta p{color:rgba(255,255,255,0.88);font-size:16.5px;margin-bottom:32px;}
+  .final-cta .hero-btns{justify-content:center;margin-bottom:0;}
+  .final-cta .btn-primary{background:#fff;color:var(--spray-deep);box-shadow:0 14px 30px -10px rgba(0,0,0,0.35);}
+  .final-cta .btn-primary:hover{background:#eef7ff;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink-2);padding:64px 0 26px;color:rgba(255,255,255,0.72);}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+  .foot-logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Archivo Black',sans-serif;font-size:19px;margin-bottom:14px;}
+  .foot-logo span{color:var(--spray-bright);}
+  .foot-col h5{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.08em;font-family:'IBM Plex Mono',monospace;margin-bottom:16px;}
+  .foot-col ul{display:flex;flex-direction:column;gap:11px;}
+  .foot-col a, .foot-col li{font-size:14px;color:rgba(255,255,255,0.66);}
+  .foot-col a:hover{color:#fff;}
+  .foot-contact li{display:flex;align-items:center;gap:10px;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,255,255,0.45);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:48px;}
+    .hero{padding-top:120px;}
+    .quote-inner{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .portfolio-sliders{grid-template-columns:1fr;}
+    .gallery-grid{columns:2;}
+    .reviews-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .menu-btn{display:block;}
+    .nav-phone span.txt{display:none;}
+  }
+  @media (max-width:560px){
+    .form-grid{grid-template-columns:1fr;}
+    .services-check{grid-template-columns:1fr;}
+    .gallery-grid{columns:1;}
+    .services-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero-stats{gap:24px;}
+    .container{padding:0 18px;}
+    .sec-pad{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="siteHeader">
+  <div class="container nav-row">
+    <a href="#top" class="logo">
+      <span class="logo-badge"><img src="images/logo.png" alt="Rapid Wash logo"></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#quote">Get a Quote</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+16293011813" class="nav-phone">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5cc2f0" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="txt">(629) 301-1813</span>
+      </a>
+      <a href="#quote" class="btn btn-primary" style="padding:11px 22px;font-size:13.5px;">Free Quote</a>
+      <button class="menu-btn" aria-label="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Smith County, TN &amp; Surrounding Areas</span>
+      <h1>Grime doesn't get<br> the <em>last word.</em></h1>
+      <p class="lead">Rapid Wash is a locally operated pressure washing crew restoring driveways, siding, patios, and gutters across Carthage, Gordonsville, Lebanon, and the lake communities around Smith County. We show up on time, work fast, and leave every surface looking new.</p>
+      <div class="hero-btns">
+        <a href="#quote" class="btn btn-primary">Get My Free Quote</a>
+        <a href="sms:+16293011813" class="btn btn-ghost">Text My Number</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>500+</b><span>Jobs Completed</span></div>
+        <div class="stat"><b>100%</b><span>Satisfaction Focused</span></div>
+        <div class="stat"><b>Local</b><span>Owned &amp; Operated</span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="ba-wrap" id="baHero">
+        <div class="ba-slider">
+          <img class="ba-before" src="images/hero-before.jpg" alt="Dirty stained driveway before pressure washing">
+          <img class="ba-after" src="images/hero-after.jpg" alt="Clean bright driveway after pressure washing">
+          <span class="ba-tag before">Before</span>
+          <span class="ba-tag after">After</span>
+          <div class="ba-handle">
+            <div class="ba-grip">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-hint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+        Drag to reveal the clean
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE FORM ================= -->
+<section class="quote-band" id="quote">
+  <div class="container quote-inner">
+    <div class="quote-left reveal">
+      <span class="eyebrow">Get Your Quote Fast</span>
+      <h2>Tell us about the job. We'll get back to you fast.</h2>
+      <p>Fill in a few details and we'll follow up with a fast, no-obligation price — most requests are answered within the hour.</p>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> No pushy sales calls</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Straightforward, honest pricing</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Flexible scheduling, 7 days a week</li>
+      </ul>
+    </div>
+
+    <div class="quote-card reveal">
+      <h3>Instant Quote Request</h3>
+      <form id="quoteForm">
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" name="name" required placeholder="Jane Smith"></div>
+          <div class="field"><label>Phone Number</label><input type="tel" name="phone" required placeholder="(615) 555-0123"></div>
+          <div class="field full"><label>Email</label><input type="email" name="email" placeholder="you@email.com"></div>
+          <div class="field full"><label>Property Address</label><input type="text" name="address" placeholder="Street, City"></div>
+
+          <div class="field full">
+            <label>What do you need cleaned?</label>
+            <div class="services-check">
+              <label class="chk"><input type="checkbox" name="service" value="Pressure Washing"> Pressure Washing</label>
+              <label class="chk"><input type="checkbox" name="service" value="Soft Washing"> Soft Washing</label>
+              <label class="chk"><input type="checkbox" name="service" value="Window Cleaning"> Window Cleaning</label>
+              <label class="chk"><input type="checkbox" name="service" value="Sidewalks"> Sidewalks</label>
+              <label class="chk"><input type="checkbox" name="service" value="Patios"> Patios</label>
+              <label class="chk"><input type="checkbox" name="service" value="Fences"> Fences</label>
+              <label class="chk"><input type="checkbox" name="service" value="Gutters"> Gutters</label>
+              <label class="chk"><input type="checkbox" name="service" value="Not Sure Yet"> Not Sure Yet</label>
+            </div>
+          </div>
+
+          <div class="field full"><label>Anything else we should know?</label><textarea name="message" placeholder="Size of area, level of buildup, best time to reach you..."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Get My Free Quote</button>
+        <div class="form-success" id="formSuccess">Thanks! Your email app should be open with your request ready to send — hit send and we'll reply fast.</div>
+        <p class="form-note">We reply by call, text, or email — whatever's easiest for you.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section class="sec-pad">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Why Homeowners Pick Rapid Wash</span>
+      <h2>Built on equipment, trust, and results you can see.</h2>
+      <p>We're not a franchise passing through — we're your neighbors, treating every property like it's our own.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        </div>
+        <h3>Professional-Grade Equipment</h3>
+        <p>Commercial hot and cold water pressure washers, surface cleaners, and soft-wash rigs — built to lift years of grime without damaging what's underneath.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.7-8 10-4.5-1.3-8-5-8-10V6l8-4z"/></svg>
+        </div>
+        <h3>Local &amp; Trusted</h3>
+        <p>Based in Smith County and serving the surrounding communities. We answer our phone, show up when we say we will, and stand behind every job.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </div>
+        <h3>Detail-Focused Results</h3>
+        <p>Edges, corners, gutter lines, grout — the spots most crews rush past are exactly where we slow down.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="sec-pad services-sec" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What We Clean</span>
+      <h2>One call covers the whole exterior.</h2>
+      <p>Mix and match — most customers bundle two or three services into a single visit.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 2c-3 3-3 7 0 10M12 2c3 3 3 7 0 10M6 22h12M8 18h8"/></svg></div>
+        <h4>Pressure Washing</h4>
+        <p>Driveways, walkways, and concrete restored to like-new condition.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18M5 5l14 14M19 5L5 19"/></svg></div>
+        <h4>Soft Washing</h4>
+        <p>Low-pressure, chemical-safe cleaning for siding, stucco, and roofs.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16M12 4v16"/></svg></div>
+        <h4>Window Cleaning</h4>
+        <p>Streak-free glass and frames, inside track and sills included.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l6-16h2l6 16M6 14h8"/></svg></div>
+        <h4>Sidewalks</h4>
+        <p>Removes mildew and staining that makes concrete look years older.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="10" rx="1"/><path d="M3 10l9-6 9 6"/></svg></div>
+        <h4>Patios</h4>
+        <p>Pavers and stone brought back to their original color and grip.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16M4 4h5v5H4zM4 14h5v5H4zM11 4h9M11 9h9M11 14h9M11 19h9"/></svg></div>
+        <h4>Fences</h4>
+        <p>Wood, vinyl, and metal fencing de-mossed, de-mildewed, and brightened.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M6 6v10a2 2 0 002 2h8a2 2 0 002-2V6M9 6V4h6v2"/></svg></div>
+        <h4>Gutters</h4>
+        <p>Exterior brightening and buildup removal so water flows the way it should.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+        <h4>Not Sure What You Need?</h4>
+        <p>Send a few photos with your quote request — we'll recommend the right fix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="sec-pad" id="portfolio">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Real Jobs, Real Results</span>
+      <h2>Drag the sliders. See the difference for yourself.</h2>
+      <p>Every photo below is from a property we've cleaned around Smith County — nothing stock, nothing staged.</p>
+    </div>
+
+    <div class="portfolio-sliders">
+      <div class="reveal">
+        <div class="ba-wrap small" data-ba>
+          <div class="ba-slider">
+            <img class="ba-before" src="images/slider-rail-before.jpg" alt="Mossy, mildew-stained deck railing before cleaning">
+            <img class="ba-after" src="images/slider-rail-after.jpg" alt="Bright white deck railing after soft washing">
+            <span class="ba-tag before">Before</span>
+            <span class="ba-tag after">After</span>
+            <div class="ba-handle"><div class="ba-grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div>
+          </div>
+        </div>
+        <div class="ba-caption"><p>Deck Railing Restoration</p><span>Soft wash — moss &amp; mildew removal</span></div>
+      </div>
+
+      <div class="reveal">
+        <div class="ba-wrap small" data-ba>
+          <div class="ba-slider">
+            <img class="ba-before" src="images/slider-walk-before.jpg" alt="Paver walkway covered in green moss before cleaning">
+            <img class="ba-after" src="images/slider-walk-after.jpg" alt="Clean paver walkway after pressure washing">
+            <span class="ba-tag before">Before</span>
+            <span class="ba-tag after">After</span>
+            <div class="ba-handle"><div class="ba-grip"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg></div></div>
+          </div>
+        </div>
+        <div class="ba-caption"><p>Paver Walkway Cleaning</p><span>Pressure wash — moss &amp; grime lifted from every joint</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="reveal"><img src="images/gallery-action-rail.jpg" alt="Rapid Wash technician cleaning a deck railing"><figcaption>On the job — hand-detailing a rail</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-patio2.jpg" alt="Clean paver patio with outdoor kitchen and mountain view"><figcaption>Outdoor kitchen patio, refreshed</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-driveway-clean1.jpg" alt="Clean exposed aggregate driveway"><figcaption>Exposed aggregate driveway</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-siding-before.jpg" alt="Vinyl siding with heavy mold and mildew before soft washing"><figcaption>Before: mildew-heavy siding</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-walk2.jpg" alt="Clean paver path along a brick home"><figcaption>Side-yard paver path</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-driveway-progress.jpg" alt="Driveway mid-clean showing streaks of restored concrete"><figcaption>Mid-clean — the transformation in progress</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-driveway-clean2.jpg" alt="Clean driveway in front of brick home garage"><figcaption>Full driveway refresh</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-walk3.jpg" alt="Clean paver walkway leading to stone steps"><figcaption>Walkway &amp; stone steps</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-driveway-clean3.jpg" alt="Clean concrete driveway leading to garage"><figcaption>Driveway, corner to corner</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-patio1.jpg" alt="Clean paver patio with grill station and hill view"><figcaption>Patio &amp; grill station</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-driveway-wooded.jpg" alt="Long wooded driveway cleaned of grime"><figcaption>Long driveway, tree-lined</figcaption></figure>
+      <figure class="reveal"><img src="images/gallery-walk4.jpg" alt="Clean curved concrete sidewalk"><figcaption>Curved sidewalk cleaning</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="sec-pad reviews-sec" id="reviews">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Social Proof</span>
+      <h2>What Smith County neighbors are saying.</h2>
+    </div>
+
+    <div class="review-summary reveal">
+      <div class="g-badge">
+        <b>4.9</b>
+        <div>
+          <div class="g-stars">★★★★★</div>
+          <div class="g-label">Google Reviews</div>
+        </div>
+      </div>
+      <div class="g-label" style="font-size:13.5px;color:rgba(255,255,255,0.6);">Based on verified reviews from local customers</div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="g-stars">★★★★★</div>
+        <p class="txt">"Our driveway had years of mildew buildup and looked brand new within a couple hours. Showed up right on time and cleaned up after themselves."</p>
+        <div class="reviewer">
+          <div class="avatar">D</div>
+          <div><span class="name">Denise H.</span><span class="loc">Carthage, TN</span></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="g-stars">★★★★★</div>
+        <p class="txt">"Soft washed our siding and deck railing — didn't realize how green it had gotten until I saw it white again. Fair price, no upsells."</p>
+        <div class="reviewer">
+          <div class="avatar">M</div>
+          <div><span class="name">Mark T.</span><span class="loc">Gordonsville, TN</span></div>
+        </div>
+      </div>
+      <div class="review-card reveal">
+        <div class="g-stars">★★★★★</div>
+        <p class="txt">"Rapid Wash cleaned our whole patio, walkway, and outdoor kitchen before a family reunion. Everyone asked who we hired — will be a repeat customer."</p>
+        <div class="reviewer">
+          <div class="avatar">S</div>
+          <div><span class="name">Sarah B.</span><span class="loc">Lebanon, TN</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta">
+  <div class="container">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.85);">Ready When You Are</span>
+    <h2>Let's make it look new again.</h2>
+    <p>Free quotes, fast replies, honest pricing — serving Smith County and beyond.</p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn btn-primary">Get My Free Quote</a>
+      <a href="sms:+16293011813" class="btn btn-ghost">Text My Number</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <span class="logo-badge"><img src="images/logo.png" alt="Rapid Wash logo"></span>
+        </div>
+        <p style="font-size:14px;max-width:280px;color:rgba(255,255,255,0.6);">Locally operated pressure washing serving Smith County, Tennessee and the surrounding communities.</p>
+      </div>
+
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li>Pressure Washing</li>
+          <li>Soft Washing</li>
+          <li>Window Cleaning</li>
+          <li>Sidewalks &amp; Patios</li>
+          <li>Fences &amp; Gutters</li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h5>Service Area</h5>
+        <ul>
+          <li>Carthage, TN</li>
+          <li>South Carthage, TN</li>
+          <li>Gordonsville, TN</li>
+          <li>Dixon Springs, TN</li>
+          <li>Lebanon &amp; Hartsville, TN</li>
+        </ul>
+      </div>
+
+      <div class="foot-col foot-contact">
+        <h5>Contact</h5>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5cc2f0" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.79.65 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.43-1.27a2 2 0 0 1 2.11-.45c.86.31 1.75.53 2.65.65A2 2 0 0 1 22 16.92z"/></svg> <a href="tel:+16293011813">(629) 301-1813</a></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5cc2f0" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg> <a href="mailto:rapidwashprosbros@gmail.com">rapidwashprosbros@gmail.com</a></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5cc2f0" stroke-width="2"><path d="M12 2C12 2 5 10.5 5 15a7 7 0 0 0 14 0c0-4.5-7-13-7-13Z"/></svg> Smith County, TN</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Rapid Wash. All rights reserved.</span>
+      <span>Locally owned &amp; operated in Smith County, Tennessee.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Sticky header
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('solid', window.scrollY > 40);
+  });
+
+  // Mobile menu toggle (simple show/hide of nav-links as column)
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:absolute;top:64px;left:0;right:0;background:#101720;flex-direction:column;padding:24px;gap:18px;z-index:99;';
+  });
+
+  // Before/After sliders
+  function initSlider(wrap){
+    const slider = wrap.querySelector('.ba-slider');
+    const after = wrap.querySelector('.ba-after');
+    const handle = wrap.querySelector('.ba-handle');
+    let dragging = false;
+
+    function setPos(x){
+      const rect = slider.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = pct + '%';
+    }
+
+    function start(e){ dragging = true; move(e); }
+    function end(){ dragging = false; }
+    function move(e){
+      if(!dragging) return;
+      const x = e.touches ? e.touches[0].clientX : e.clientX;
+      setPos(x);
+    }
+
+    handle.addEventListener('mousedown', start);
+    slider.addEventListener('mousedown', start);
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', end);
+
+    handle.addEventListener('touchstart', start, {passive:true});
+    slider.addEventListener('touchstart', start, {passive:true});
+    window.addEventListener('touchmove', move, {passive:true});
+    window.addEventListener('touchend', end);
+
+    // subtle auto-demo on load
+    setTimeout(() => { setPos(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.68); }, 500);
+    setTimeout(() => { setPos(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5); }, 1300);
+  }
+  document.querySelectorAll('.ba-wrap').forEach(initSlider);
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Quote form -> mailto submission
+  const form = document.getElementById('quoteForm');
+  const successMsg = document.getElementById('formSuccess');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = data.get('name') || '';
+    const phone = data.get('phone') || '';
+    const email = data.get('email') || '';
+    const address = data.get('address') || '';
+    const services = data.getAll('service').join(', ') || 'Not specified';
+    const message = data.get('message') || '';
+
+    const subject = encodeURIComponent(`Free Quote Request from ${name}`);
+    const body = encodeURIComponent(
+`New quote request from the Rapid Wash website:
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Address: ${address}
+Services requested: ${services}
+
+Message:
+${message}`
+    );
+    window.location.href = `mailto:rapidwashprosbros@gmail.com?subject=${subject}&body=${body}`;
+    successMsg.classList.add('show');
+  });
+</script>
+</body>
+</html>
