@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- Scroll reveal ----------
   const revealTargets = document.querySelectorAll(
-    "section:not(.hero), .feature-card, .review-card, .portfolio-pair"
+    "section:not(.hero), .feature-card, .portfolio-pair"
   );
 
   if ("IntersectionObserver" in window) {

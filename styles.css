@@ -361,44 +361,6 @@ button {
   gap: 1rem;
 }
 
-.social-proof {
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: hsl(var(--muted-foreground));
-}
-
-.avatar-stack {
-  display: flex;
-}
-
-.avatar-stack .star-badge {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background: white;
-  border: 2px solid hsl(var(--background));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-left: -0.5rem;
-}
-
-.avatar-stack .star-badge:first-child {
-  margin-left: 0;
-}
-
-.avatar-stack .icon {
-  color: #facc15;
-  fill: #facc15;
-  width: 1rem;
-  height: 1rem;
-}
-
 .hero-image-wrap {
   position: relative;
   display: flex;
@@ -887,86 +849,6 @@ section {
 
 .projects-grid img:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* ---------- Reviews ---------- */
-
-.reviews-summary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.reviews-summary .score {
-  font-size: 2.25rem;
-  font-weight: 900;
-}
-
-.reviews-summary .stars {
-  display: flex;
-  gap: 0.15rem;
-}
-
-.reviews-summary .stars .icon,
-.review-stars .icon {
-  color: #facc15;
-  fill: #facc15;
-  width: 1.1rem;
-  height: 1.1rem;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.review-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  border: 1px solid hsl(var(--border));
-}
-
-.review-head {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.review-avatar {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-}
-
-.review-avatar.blue { background: #dbeafe; color: #1d4ed8; }
-.review-avatar.green { background: #dcfce7; color: #15803d; }
-.review-avatar.purple { background: #f3e8ff; color: #7e22ce; }
-
-.review-head h4 {
-  margin: 0 0 0.15rem;
-  font-weight: 700;
-}
-
-.review-stars {
-  display: flex;
-  gap: 0.1rem;
-}
-
-.review-card p {
-  color: hsl(var(--muted-foreground));
-  margin: 0;
-  line-height: 1.6;
 }
 
 /* ---------- Bottom CTA ---------- */
@@ -1575,10 +1457,6 @@ section {
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .reviews-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .cta-actions {
