@@ -19,6 +19,11 @@
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
+  /* Seasonal accent: warm white bulb glow (used sparingly) */
+  --glow: 40 96% 64%;
+  --glow-foreground: 222 47% 11%;
+  --night: 222 55% 10%;
+
   --radius: 0.5rem;
 }
 
@@ -876,6 +881,10 @@ section {
   transition: box-shadow 0.2s ease;
 }
 
+.projects-grid img:first-child {
+  grid-column: span 2;
+}
+
 .projects-grid img:hover {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
@@ -1020,7 +1029,9 @@ section {
 .footer-brand img {
   height: 3.5rem;
   width: auto;
-  filter: brightness(0) invert(1);
+  background: white;
+  padding: 0.35rem;
+  border-radius: 0.6rem;
   margin-bottom: 1rem;
 }
 
@@ -1087,6 +1098,449 @@ section {
 }
 
 /* ==========================================================================
+   Christmas 2026 seasonal layer
+   ========================================================================== */
+
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+.btn-glow {
+  background: hsl(var(--glow));
+  color: hsl(var(--glow-foreground));
+  box-shadow: 0 10px 28px -10px hsl(var(--glow) / 0.65);
+}
+
+.btn-glow:hover {
+  background: hsl(40 96% 70%);
+}
+
+.btn:focus-visible {
+  outline: 3px solid hsl(var(--glow));
+  outline-offset: 2px;
+}
+
+.glow-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: hsl(var(--glow));
+  box-shadow: 0 0 8px 2px hsl(var(--glow) / 0.6);
+  flex-shrink: 0;
+}
+
+.nav-seasonal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+  margin-bottom: 0.75rem;
+}
+
+.kicker-light {
+  color: hsl(var(--glow));
+}
+
+/* ---------- Seasonal hero ---------- */
+
+.hero-seasonal {
+  background: linear-gradient(180deg, hsl(var(--night)), hsl(var(--secondary)));
+  color: white;
+}
+
+.hero-seasonal::before {
+  background: radial-gradient(ellipse at 75% 40%, hsl(var(--glow) / 0.12), transparent 60%);
+}
+
+.hero-seasonal::after {
+  background: hsl(var(--primary) / 0.18);
+  opacity: 0.5;
+}
+
+.hero-seasonal .eyebrow {
+  background: rgba(255, 255, 255, 0.08);
+  color: hsl(var(--glow));
+  border-color: hsl(var(--glow) / 0.3);
+}
+
+.hero-seasonal h1 {
+  color: white;
+}
+
+.hero-seasonal h1 .accent {
+  background: linear-gradient(90deg, hsl(var(--glow)), hsl(36 100% 78%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-seasonal .hero-sub {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-also {
+  margin: 1.75rem 0 0;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.hero-also a {
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hero-also a:hover {
+  color: hsl(var(--glow));
+}
+
+.hero-seasonal .hero-image-inner::before {
+  background: hsl(var(--glow) / 0.18);
+}
+
+.hero-seasonal .hero-image-inner img {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: hsl(var(--night));
+}
+
+.hero-seasonal .hero-badge-icon {
+  background: hsl(var(--glow) / 0.2);
+  color: hsl(36 90% 38%);
+}
+
+.hero-seasonal .hero-badge {
+  color: hsl(var(--foreground));
+}
+
+/* ---------- Split layout (Christmas lighting service) ---------- */
+
+.split {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.split-copy h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.split-copy > p {
+  font-size: 1.1rem;
+  color: hsl(var(--muted-foreground));
+  margin: 0 0 1.5rem;
+}
+
+.split-copy .split-note {
+  font-size: 0.98rem;
+  margin-top: 1.5rem;
+}
+
+.check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.check-list .icon {
+  color: hsl(var(--primary));
+  margin-top: 0.2rem;
+}
+
+.split-actions .btn {
+  width: 100%;
+}
+
+.split-visual img {
+  width: 100%;
+  height: auto;
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px -20px rgba(10, 20, 40, 0.5);
+}
+
+/* ---------- Feature cards (seasonal) ---------- */
+
+.feature-icon-glow {
+  background: hsl(var(--night));
+  color: hsl(var(--glow));
+}
+
+/* ---------- Process steps ---------- */
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  counter-reset: none;
+}
+
+.step {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+}
+
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: hsl(var(--secondary));
+  color: hsl(var(--glow));
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.step h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.step p {
+  margin: 0;
+  color: hsl(var(--muted-foreground));
+}
+
+/* ---------- Visual / gallery section ---------- */
+
+.glow-section {
+  background: hsl(var(--night));
+  color: white;
+}
+
+.glow-section .section-header p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.glow-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.glow-tile {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: hsl(var(--secondary));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-tile img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.glow-tile figcaption {
+  padding: 1rem 1.25rem 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.glow-tile figcaption strong {
+  display: block;
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 0.2rem;
+}
+
+/* ---------- Quote CTA band ---------- */
+
+.cta-band {
+  background: hsl(var(--secondary));
+  color: white;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cta-band .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cta-band h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0 0 0.4rem;
+}
+
+.cta-band p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cta-band-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ---------- Services: seasonal pill ---------- */
+
+.service-pill {
+  min-width: 0;
+}
+
+@media (max-width: 400px) {
+  .services-grid {
+    gap: 0.6rem;
+  }
+
+  .service-pill {
+    padding: 1rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .service-pill span {
+    font-size: 0.98rem;
+  }
+}
+
+.service-pill-seasonal {
+  border-color: hsl(var(--glow) / 0.45);
+  background: hsl(var(--glow) / 0.1);
+}
+
+.service-pill-seasonal:hover {
+  background: hsl(var(--glow) / 0.18);
+}
+
+.service-pill-seasonal .glow-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 0 0.4rem;
+}
+
+/* ---------- Service area line ---------- */
+
+.service-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.service-area .icon {
+  color: hsl(var(--primary));
+}
+
+/* ---------- Final seasonal CTA ---------- */
+
+.cta-seasonal {
+  background: linear-gradient(180deg, hsl(var(--secondary)), hsl(var(--night)));
+}
+
+.cta-seasonal::before {
+  background: radial-gradient(ellipse at 50% 0%, hsl(var(--glow) / 0.14), transparent 65%);
+}
+
+.cta-seasonal .cta-sub {
+  margin: 2rem auto 0;
+  font-size: 1rem;
+  opacity: 0.75;
+}
+
+.cta-seasonal .cta-sub a {
+  white-space: nowrap;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Seasonal CTAs carry long labels; let them wrap on narrow phones */
+.hero-actions .btn,
+.cta-actions .btn,
+.cta-band-actions .btn,
+.split-actions .btn {
+  white-space: normal;
+  text-align: center;
+  height: auto;
+  min-height: 3.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* ---------- Mobile sticky CTA ---------- */
+
+.mobile-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid hsl(var(--border));
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-cta .btn {
+  height: 3.25rem;
+  font-size: 1rem;
+}
+
+.mobile-cta .btn-glow {
+  flex: 1;
+}
+
+.btn-mobile-text {
+  background: hsl(var(--secondary));
+  color: white;
+  padding: 0 1.1rem;
+}
+
+.mobile-cta.is-hidden,
+.menu-open .mobile-cta {
+  transform: translateY(110%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Room for the sticky bar so it never covers the footer */
+.site-footer {
+  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom));
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
@@ -1143,6 +1597,58 @@ section {
     flex-direction: row;
     justify-content: space-between;
   }
+
+  /* Seasonal layer */
+  .mobile-cta {
+    display: none;
+  }
+
+  .site-footer {
+    padding-bottom: 2rem;
+  }
+
+  .card-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .glow-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split-actions .btn {
+    width: auto;
+  }
+
+  .cta-band-actions {
+    flex-direction: row;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split-copy h2 {
+    font-size: 2.25rem;
+  }
+}
+
+/* Tight desktop widths: keep the nav on one line */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .desktop-nav {
+    gap: 1.25rem;
+  }
+
+  .nav-actions {
+    margin-left: 0;
+  }
+
+  .nav-phone-text {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1160,6 +1666,31 @@ section {
 
   .services-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Seasonal layer */
+  .split {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+  }
+
+  .card-grid-4,
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cta-band .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-seasonal .hero-image-wrap {
+    height: auto;
+  }
+
+  .hero-seasonal .hero-image-inner {
+    max-width: 34rem;
   }
 }
 

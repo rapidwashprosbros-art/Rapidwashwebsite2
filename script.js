@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mobileMenu.classList.toggle("open", open);
     menuIconOpen.classList.toggle("hidden", open);
     menuIconClose.classList.toggle("hidden", !open);
+    document.body.classList.toggle("menu-open", open);
   }
 
   if (menuToggle) {
@@ -32,14 +33,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ---------- Scroll to quote form ----------
+  // Buttons with data-service (e.g. the Christmas lighting CTAs) also
+  // preselect that service in the quote form.
   document.querySelectorAll("[data-scroll-quote]").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
+      const service = el.dataset.service;
+      const serviceSelect = document.getElementById("service");
+      if (service && serviceSelect) {
+        serviceSelect.value = service;
+        const errorEl = document.querySelector('[data-error-for="service"]');
+        if (errorEl) errorEl.textContent = "";
+      }
       const target = document.getElementById("quote");
       if (target) target.scrollIntoView({ behavior: "smooth" });
       setMenuOpen(false);
     });
   });
+
+  // ---------- Mobile sticky CTA ----------
+  // Hidden while the quote form is on screen so it never covers the form.
+  const mobileCta = document.getElementById("mobileCta");
+  const quoteSection = document.getElementById("quote");
+  if (mobileCta && quoteSection && "IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        mobileCta.classList.toggle("is-hidden", entry.isIntersecting);
+      });
+    }).observe(quoteSection);
+  }
 
   // ---------- Quote form ----------
   // This is a static site with no backend, so quote requests are delivered
@@ -121,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.textContent = "Get My Free Quote";
         quoteForm.classList.add("hidden");
         quoteSuccess.classList.remove("hidden");
+        quoteSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 400);
     });
   }
