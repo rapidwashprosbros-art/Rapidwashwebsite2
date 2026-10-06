@@ -1771,3 +1771,111 @@ section {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Stacked hero (phones & tablets, < 1024px)
+   Order: badge, headline, copy, CTAs, image + badge, "also serving" line.
+   Desktop (>= 1024px) is unaffected.
+   ========================================================================== */
+
+@media (max-width: 1023px) {
+  .hero-seasonal .container {
+    gap: 0;
+  }
+
+  /* Let the copy's children join the hero grid so the "also serving"
+     line can sit below the image instead of between CTAs and image. */
+  .hero-seasonal .hero-copy {
+    display: contents;
+  }
+
+  .hero-seasonal .eyebrow {
+    justify-self: start;
+  }
+
+  .hero-seasonal .hero-copy > * {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  .hero-seasonal .hero-image-wrap {
+    margin-top: 2rem;
+  }
+
+  .hero-seasonal .hero-also {
+    order: 1;
+    margin-top: 2.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-header .container {
+    height: 4rem;
+  }
+
+  .logo img {
+    height: 2.5rem;
+  }
+
+  .mobile-menu {
+    top: 4rem;
+  }
+
+  [id] {
+    scroll-margin-top: 4rem;
+  }
+
+  .hero-seasonal {
+    padding: 1.25rem 0 3rem;
+  }
+
+  .hero-seasonal .eyebrow {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-seasonal h1 {
+    font-size: clamp(2rem, 9.4vw, 2.6rem);
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-seasonal .hero-sub {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-seasonal .hero-actions {
+    gap: 0.6rem;
+  }
+
+  .hero-seasonal .hero-actions .btn {
+    min-height: 3.25rem;
+    font-size: 1.05rem;
+  }
+
+  .hero-seasonal .hero-image-wrap {
+    margin-top: 1.5rem;
+  }
+
+  .hero-seasonal .hero-image-inner {
+    max-width: none;
+  }
+
+  .hero-seasonal .hero-image-inner img {
+    border-width: 4px;
+    border-radius: 1.25rem;
+  }
+
+  .hero-seasonal .hero-badge {
+    left: 0.75rem;
+    bottom: -1.25rem;
+    padding: 0.7rem 0.9rem;
+    gap: 0.75rem;
+  }
+
+  .hero-seasonal .hero-also {
+    margin-top: 2.25rem;
+    font-size: 0.9rem;
+  }
+}

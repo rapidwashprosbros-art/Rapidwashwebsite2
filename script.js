@@ -53,15 +53,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ---------- Mobile sticky CTA ----------
-  // Hidden while the quote form is on screen so it never covers the form.
+  // Hidden while the hero buttons or the quote form are on screen, so it
+  // never duplicates the hero CTAs or covers the form.
   const mobileCta = document.getElementById("mobileCta");
-  const quoteSection = document.getElementById("quote");
-  if (mobileCta && quoteSection && "IntersectionObserver" in window) {
-    new IntersectionObserver((entries) => {
+  const ctaBlockers = [
+    document.querySelector(".hero-actions"),
+    document.getElementById("quote"),
+  ].filter(Boolean);
+  if (mobileCta && ctaBlockers.length && "IntersectionObserver" in window) {
+    const visible = new Set();
+    const ctaObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        mobileCta.classList.toggle("is-hidden", entry.isIntersecting);
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
       });
-    }).observe(quoteSection);
+      mobileCta.classList.toggle("is-hidden", visible.size > 0);
+    });
+    ctaBlockers.forEach((el) => ctaObserver.observe(el));
   }
 
   // ---------- Quote form ----------
