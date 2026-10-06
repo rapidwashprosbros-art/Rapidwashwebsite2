@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const serviceSelect = document.getElementById("service");
       if (service && serviceSelect) {
         serviceSelect.value = service;
+        serviceSelect.dispatchEvent(new Event("change"));
         const errorEl = document.querySelector('[data-error-for="service"]');
         if (errorEl) errorEl.textContent = "";
       }
@@ -73,6 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const quoteSuccess = document.getElementById("quoteSuccess");
   const submitBtn = document.getElementById("submitBtn");
   const resetFormBtn = document.getElementById("resetFormBtn");
+
+  // Christmas lighting quotes need photos of the areas to light, which we use
+  // to build the customer's free mockup.
+  const LIGHTING_SERVICE = "Christmas Lighting";
+  const photoHint = document.getElementById("photoHint");
+  const successPhotoNote = document.getElementById("successPhotoNote");
+
+  function updatePhotoHint() {
+    if (photoHint) photoHint.classList.toggle("hidden", quoteForm.service.value !== LIGHTING_SERVICE);
+  }
+
+  if (quoteForm) quoteForm.service.addEventListener("change", updatePhotoHint);
 
   function showError(fieldName, message) {
     const errorEl = quoteForm.querySelector(`[data-error-for="${fieldName}"]`);
@@ -133,6 +146,9 @@ document.addEventListener("DOMContentLoaded", () => {
         data.address ? `Address: ${data.address}` : null,
         `Service: ${data.service}`,
         data.message ? `Message: ${data.message}` : null,
+        data.service === LIGHTING_SERVICE
+          ? "\nPhotos: Please attach photos of the sides/areas of your home you want lit (or text them to (629) 301-1813). We'll use them to create your free mockup."
+          : null,
       ].filter(Boolean);
 
       const mailtoUrl = `mailto:${QUOTE_REQUEST_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
@@ -142,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.disabled = false;
         submitBtn.textContent = "Get My Free Quote";
         quoteForm.classList.add("hidden");
+        if (successPhotoNote) successPhotoNote.classList.toggle("hidden", data.service !== LIGHTING_SERVICE);
         quoteSuccess.classList.remove("hidden");
         quoteSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 400);
@@ -152,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetFormBtn.addEventListener("click", () => {
       quoteForm.reset();
       clearErrors();
+      updatePhotoHint();
       quoteSuccess.classList.add("hidden");
       quoteForm.classList.remove("hidden");
     });

@@ -1213,6 +1213,154 @@ section {
   color: hsl(var(--muted-foreground));
 }
 
+/* ---------- How Christmas lighting works ---------- */
+
+.process-section {
+  background: hsl(var(--muted) / 0.55);
+  border-top: 1px solid hsl(var(--border));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.process-section .section-header h2 {
+  font-size: 2.1rem;
+  font-weight: 800;
+}
+
+.process-section .step {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.step-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: hsl(var(--muted-foreground) / 0.6);
+}
+
+.step-icon .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.step-featured {
+  border-color: hsl(var(--glow));
+  box-shadow: 0 0 0 1px hsl(var(--glow)), 0 12px 30px -14px hsl(var(--glow) / 0.7) !important;
+}
+
+.step-featured .step-icon {
+  color: hsl(36 90% 45%);
+}
+
+.step-badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 1.5rem;
+  background: hsl(var(--glow));
+  color: hsl(var(--glow-foreground));
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.process-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  max-width: 48rem;
+  margin: 2.5rem auto 0;
+  padding: 1.1rem 1.35rem;
+  border-radius: 0.9rem;
+  background: hsl(var(--secondary));
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.process-callout .icon {
+  color: hsl(var(--glow));
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-top: 0.1rem;
+}
+
+.process-callout p {
+  margin: 0;
+}
+
+.process-callout strong {
+  color: white;
+}
+
+.process-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+.process-actions .btn {
+  white-space: normal;
+  text-align: center;
+  height: auto;
+  min-height: 3.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.text-link {
+  color: hsl(var(--primary));
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Quote form: photo instructions ---------- */
+
+.form-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: hsl(var(--glow) / 0.14);
+  border: 1px solid hsl(var(--glow) / 0.5);
+  font-size: 0.95rem;
+}
+
+.form-hint .icon {
+  color: hsl(36 90% 40%);
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-top: 0.1rem;
+}
+
+.form-hint p {
+  margin: 0;
+}
+
+.form-hint a,
+.success-photo-note a {
+  font-weight: 700;
+  color: hsl(var(--primary));
+  white-space: nowrap;
+}
+
+.quote-success .success-photo-note {
+  max-width: 28rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  background: hsl(var(--glow) / 0.14);
+  border: 1px solid hsl(var(--glow) / 0.5);
+  color: hsl(var(--foreground));
+}
+
 /* ---------- Visual / gallery section ---------- */
 
 .glow-section {
@@ -1503,6 +1651,15 @@ section {
 
   .cta-band-actions {
     flex-direction: row;
+  }
+
+  .process-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .process-section .section-header h2 {
+    font-size: 2.5rem;
   }
 
   .projects-grid {
