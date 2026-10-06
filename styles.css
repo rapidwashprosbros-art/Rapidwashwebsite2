@@ -1361,6 +1361,40 @@ section {
   color: hsl(var(--foreground));
 }
 
+/* ---------- Concept image labels ---------- */
+
+.split-visual,
+.glow-tile {
+  position: relative;
+}
+
+.concept-tag {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(10, 20, 40, 0.6);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+}
+
+.hero-image-inner .concept-tag {
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.glow-section .section-header .concept-note {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* ---------- Visual / gallery section ---------- */
 
 .glow-section {
