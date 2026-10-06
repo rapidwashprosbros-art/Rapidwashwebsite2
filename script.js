@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `Service: ${data.service}`,
         data.message ? `Message: ${data.message}` : null,
         data.service === LIGHTING_SERVICE
-          ? "\nPhotos: Please attach photos of the sides/areas of your home you want lit (or text them to (629) 301-1813). We'll use them to create your free mockup."
+          ? "\nPhotos: Please send photos of the sides and areas of your home you want lit. Text them to (629) 301-1813 or attach them to your quote email. We'll use them to create your free mockup."
           : null,
       ].filter(Boolean);
 
