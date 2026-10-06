@@ -713,7 +713,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://images.unsplash.com/photo-1621293954908-907159247fc8?q=80&w=2070&auto=format&fit=crop') center/cover;
+  background: url('https://images.unsplash.com/photo-1621293954908-907159247fc8?q=60&w=1200&auto=format&fit=crop') center/cover;
   opacity: 0.1;
   mix-blend-mode: overlay;
 }
@@ -1346,7 +1346,7 @@ section {
 }
 
 .form-hint a,
-.success-photo-note a {
+.quote-success a {
   font-weight: 700;
   color: hsl(var(--primary));
   white-space: nowrap;
